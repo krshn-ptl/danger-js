@@ -8,7 +8,7 @@ LABEL "com.github.actions.color"="blue"
 
 WORKDIR /usr/src/danger
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN yarn install --network-timeout 1000000000
 COPY . .
 RUN yarn run build:fast
 RUN yarn remove 'typescript' --dev && yarn add 'typescript'
