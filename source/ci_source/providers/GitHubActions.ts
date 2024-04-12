@@ -234,6 +234,7 @@ export class GitHubActions implements CISource {
   }
 
   get isCI(): boolean {
+    console.log(this.env)
     return ensureEnvKeysExist(this.env, ["GITHUB_WORKFLOW"])
   }
 
