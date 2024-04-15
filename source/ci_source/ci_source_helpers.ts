@@ -16,6 +16,8 @@ import { BitBucketCloudAPI, bitbucketCloudCredentialsFromEnv } from "../platform
  * @returns {bool} true if they exist, false if not
  */
 export function ensureEnvKeysExist(env: Env, keys: string[]): boolean {
+  console.log(Env)
+  console.log(keys)
   console.log(env.hasOwnProperty(keys[0]))
   return keys.every((key: string) => env.hasOwnProperty(key) && env[key] != null && env[key].length > 0)
 }
