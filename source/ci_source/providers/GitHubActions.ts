@@ -248,7 +248,7 @@ export class GitHubActions implements CISource {
     console.log("here")
     console.log(this.event)
 
-    const { GITHUB_EVENT_PATH } = env
+    const { GITHUB_EVENT_PATH } = this.env
     const eventFilePath = GITHUB_EVENT_PATH || "/github/workflow/event.json"
     console.log(event)
     if (event !== undefined) {
@@ -258,7 +258,7 @@ export class GitHubActions implements CISource {
       this.event = JSON.parse(event)
       console.log(this.event)
     }
-    
+
     return this.event.pull_request === undefined && this.event.issue === undefined
   }
 
