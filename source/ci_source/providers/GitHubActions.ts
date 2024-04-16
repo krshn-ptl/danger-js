@@ -250,10 +250,8 @@ export class GitHubActions implements CISource {
 
     const { GITHUB_EVENT_PATH } = this.env
     const eventFilePath = GITHUB_EVENT_PATH || "/github/workflow/event.json"
-    console.log(event)
-    if (event !== undefined) {
-      this.event = event
-    } else if (existsSync(eventFilePath)) {
+
+    if (this.event === undefined) {
       const event = readFileSync(eventFilePath, "utf8")
       this.event = JSON.parse(event)
       console.log(this.event)
