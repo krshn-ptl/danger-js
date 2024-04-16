@@ -226,6 +226,7 @@ export class GitHubActions implements CISource {
     } else if (existsSync(eventFilePath)) {
       const event = readFileSync(eventFilePath, "utf8")
       this.event = JSON.parse(event)
+      console.log(this.event)
     }
   }
 
