@@ -245,10 +245,15 @@ export class GitHubActions implements CISource {
   }
 
   get useEventDSL() {
+    console.log("here")
+    console.log(this.event)
     return this.event.pull_request === undefined && this.event.issue === undefined
   }
 
   get pullRequestID(): string {
+
+    console.log("here2")
+    console.log(this.event)
     if (this.event.pull_request !== undefined) {
       return this.event.pull_request.number
     } else if (this.event.issue !== undefined) {
