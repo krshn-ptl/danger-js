@@ -220,7 +220,7 @@ export class GitHubActions implements CISource {
   constructor(private readonly env: Env, event: any = undefined) {
     const { GITHUB_EVENT_PATH } = env
     const eventFilePath = GITHUB_EVENT_PATH || "/github/workflow/event.json"
-
+    console.log(event)
     if (event !== undefined) {
       this.event = event
     } else if (existsSync(eventFilePath)) {
